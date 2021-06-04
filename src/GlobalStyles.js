@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     
     a {
         text-decoration: none;
+        color: unset;
     }
     ::-webkit-scrollbar {
         width: 0; /* Remove scrollbar space */
