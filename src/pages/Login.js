@@ -57,6 +57,7 @@ const Login = () => {
                             type="password"
                             placeholder="Password"
                             onChange={({ target }) => setPassword(target.value)}
+                            autoComplete="on"
                         />
                         <Button
                             disabled={isInvalid}
@@ -67,7 +68,7 @@ const Login = () => {
 
                 <SignUpBox>
                     <p>Don't have an account?</p>
-                    <Link to="/signup">Sign up</Link>
+                    <Link to={ROUTES.SIGN_UP}>Sign up</Link>
                 </SignUpBox>
 
                 <AppBox>
@@ -212,6 +213,3 @@ const AppBox = styled.div`
 `
 
 export default Login
-
-
-// https://youtu.be/AKeaaa8yAAk?t=8215
