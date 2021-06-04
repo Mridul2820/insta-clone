@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from 'react'
 import GlobalStyles from './GlobalStyles'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import * as ROUTES from './constants/routes'
+
 const Login = lazy(() => import ('./pages/Login'))
 
 const App = () => {
@@ -11,7 +13,7 @@ const App = () => {
             <Suspense fallback={<p>Loading...</p>} >
                 <Router>
                     <Switch>
-                        <Route path="/login" component={Login} />
+                        <Route path={ROUTES.LOGIN} component={Login} />
                     </Switch>
                 </Router>
             </Suspense>
