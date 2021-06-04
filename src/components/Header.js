@@ -30,7 +30,7 @@ const Header = () => {
                 </HeaderLogo>
                 <HeaderRight>
                 {user ? (
-                    <HomeIcons>
+                    <HeaderIcons>
                         <Link to={ROUTES.DASHBOARD} >
                             <AiFillHome size="26px" />
                         </Link>
@@ -60,8 +60,17 @@ const Header = () => {
                                 alt={`${user?.displayName} profile`}
                             />
                         </ProfileIcon>
-                    </HomeIcons>
-                ):('')}
+                    </HeaderIcons>
+                ):(
+                    <HeaderButtons>
+                        <Link to={ROUTES.LOGIN}>
+                            <Button type="button">Log In</Button>
+                        </Link>
+                        <Link to={ROUTES.SIGN_UP}>
+                            <Button type="button">Sign Up</Button>
+                        </Link>
+                    </HeaderButtons>
+                )}
                 </HeaderRight>
             </HeaderContainer>
             
@@ -100,7 +109,7 @@ const HeaderRight = styled.div`
     padding-left: 8px;
 `
 
-const HomeIcons = styled.div`
+const HeaderIcons = styled.div`
     display: flex;
     align-items: center;
 
@@ -118,7 +127,6 @@ const LogOut = styled.button`
 
 const ProfileIcon = styled(Link)`
 
-
     img {
         height: 29px;
         width: 29px;
@@ -127,6 +135,17 @@ const ProfileIcon = styled(Link)`
     }
 `
 
+const HeaderButtons = styled.div``
+
+const Button = styled.button`
+    margin: 0 8px;
+    border: 1px solid transparent;
+    background-color: #0095f6;
+    color: #fff;
+    border-radius: 4px;
+    padding: 5px 9px;
+    cursor: pointer;
+`
 
 export default Header
 

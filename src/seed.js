@@ -2,7 +2,7 @@
 export function seedDatabase(firebase) {
     const users = [
         {
-            userId: 'lnAzoVbEyBVWogrAQrylJ2yE0TY2',
+            userId: 'sSswvCxSyCNNccZY3UOj24pLHWx1',
             username: 'i_mridul',
             fullName: 'Mridul Panda',
             emailAddress: 'mridul@gmail.com',
@@ -16,7 +16,7 @@ export function seedDatabase(firebase) {
             fullName: 'Subhrachitta Giri',
             emailAddress: 'subhrachitta@gmail.com',
             following: [],
-            followers: ['lnAzoVbEyBVWogrAQrylJ2yE0TY2'],
+            followers: ['sSswvCxSyCNNccZY3UOj24pLHWx1'],
             dateCreated: Date.now()
         },
         {
@@ -25,7 +25,7 @@ export function seedDatabase(firebase) {
             fullName: 'Ali Omar',
             emailAddress: 'ali.omar@gamil.com',
             following: [],
-            followers: ['lnAzoVbEyBVWogrAQrylJ2yE0TY2'],
+            followers: ['sSswvCxSyCNNccZY3UOj24pLHWx1'],
             dateCreated: Date.now()
         },
         {
@@ -34,7 +34,7 @@ export function seedDatabase(firebase) {
             fullName: 'Poulami Jana',
             emailAddress: 'poulami@gamil.com',
             following: [],
-            followers: ['lnAzoVbEyBVWogrAQrylJ2yE0TY2'],
+            followers: ['sSswvCxSyCNNccZY3UOj24pLHWx1'],
             dateCreated: Date.now()
         },
         {
@@ -43,7 +43,7 @@ export function seedDatabase(firebase) {
             fullName: 'Tushar Maity',
             emailAddress: 'maity_tushar@gmail.com',
             following: [],
-            followers: ['lnAzoVbEyBVWogrAQrylJ2yE0TY2'],
+            followers: ['sSswvCxSyCNNccZY3UOj24pLHWx1'],
             dateCreated: Date.now()
         }
     ];
@@ -60,7 +60,7 @@ export function seedDatabase(firebase) {
         .collection('photos')
         .add({
             photoId: i,
-            userId: 'lnAzoVbEyBVWogrAQrylJ2yE0TY2',
+            userId: 'sSswvCxSyCNNccZY3UOj24pLHWx1',
             imageSrc: `/images/users/i_mridul/${i}.jpg`,
             caption: 'Saint George and the Dragon',
             likes: [],
