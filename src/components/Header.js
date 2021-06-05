@@ -32,12 +32,12 @@ const Header = () => {
                 {user ? (
                     <HeaderIcons>
                         <Link to={ROUTES.DASHBOARD} >
-                            <AiFillHome size="26px" />
+                            <AiFillHome size="24px" />
                         </Link>
                         <Link to={ROUTES.DASHBOARD} >
-                            <FaFacebookMessenger size="24px" />
+                            <FaFacebookMessenger size="22px" />
                         </Link>
-                        <AiOutlineHeart size="26px"  />
+                        <AiOutlineHeart size="25px"  />
                         <LogOut
                             type="button"
                             title="Sign Out"
@@ -52,7 +52,7 @@ const Header = () => {
                                 }
                             }}
                         >
-                            <MdExitToApp size="26px"  />
+                            <MdExitToApp size="23px"  />
                         </LogOut>
                         <ProfileIcon to={`/p/${user.displayName}`}>
                             <img 
@@ -98,7 +98,7 @@ const HeaderContainer = styled.div`
 
 const HeaderLogo = styled.div`
     min-width: 40px;
-    height: 30px;
+    height: 28px;
 
     img {
         height: 100%;
@@ -128,8 +128,8 @@ const LogOut = styled.button`
 const ProfileIcon = styled(Link)`
 
     img {
-        height: 29px;
-        width: 29px;
+        height: 26px;
+        width: 26px;
         border-radius: 50%;
         overflow: hidden;
     }
@@ -148,5 +148,3 @@ const Button = styled.button`
 `
 
 export default Header
-
-// https://youtu.be/AKeaaa8yAAk?t=13689

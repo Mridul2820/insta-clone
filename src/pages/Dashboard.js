@@ -31,5 +31,3 @@ const DashBoardWrap = styled.div`
 `
 
 export default Dashboard
-
-// https://youtu.be/AKeaaa8yAAk?t=12079
