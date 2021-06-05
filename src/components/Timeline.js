@@ -1,11 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const Timeline = () => {
     return (
-        <div>
+        <TimelineWrap>
             Timeline
-        </div>
+        </TimelineWrap>
     )
 }
+
+const TimelineWrap = styled.div`
+    grid-column: 1/3;
+`
 
 export default Timeline
