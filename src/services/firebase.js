@@ -21,3 +21,14 @@ export async function getUserByUserId(userId) {
   
     return user;
 }
+
+// check all conditions before limit results
+export async function getSuggestedProfiles(userId, following) {
+    let query = firebase.firestore().collection('users');
+
+    const result = await query.limit(10).get();
+
+    return result.docs
+        .map((user) => ({ ...user.data(), docId: user.id }))
+        .filter((profile) => profile.userId !== userId && !following.includes(profile.userId))
+}

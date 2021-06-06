@@ -5,12 +5,12 @@ import User from './User'
 import Suggestions from './Suggestions'
 
 const SideBar = () => {
-    const { user : { fullName, username, userId } } = useUser()
+    const { user : { fullName, username, userId, following } } = useUser()
 
     return (
         <SideBarWrap>
-            <User fullName={fullName} username={username} />
-            <Suggestions userId={userId} />
+            <User fullName={fullName} username={username}/>
+            <Suggestions userId={userId} following={following} />
         </SideBarWrap>
     )
 }
