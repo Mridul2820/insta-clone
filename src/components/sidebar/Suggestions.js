@@ -21,6 +21,7 @@ const Suggestions = ({ userId, following, loggedInUserDocId }) => {
         }
 
         // console.log('profiles', profiles);
+        // eslint-disable-next-line
     }, [userId])
 
     return (
@@ -31,7 +32,6 @@ const Suggestions = ({ userId, following, loggedInUserDocId }) => {
             ) : (profiles.length ? (
                 <SuggestionMain>
                     <p>Suggestions For You</p>
-                    <Profiles>
                     {profiles.map((profile) => (
                         <SuggestedProfile
                             key={profile.docId}
@@ -42,7 +42,6 @@ const Suggestions = ({ userId, following, loggedInUserDocId }) => {
                             loggedInUserDocId={loggedInUserDocId}
                         />
                     ))}
-                    </Profiles>
                 </SuggestionMain>
             ) : 
                 null
@@ -56,10 +55,6 @@ const SuggestionWrap = styled.div`
 `
 
 const SuggestionMain = styled.div`
-
-`
-
-const Profiles = styled.div`
 
 `
 
