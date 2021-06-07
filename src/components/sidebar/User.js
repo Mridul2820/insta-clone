@@ -62,5 +62,3 @@ User.propTypes =  {
     username: PropTypes.string,
     fullName: PropTypes.string
 }
-
-// https://youtu.be/AKeaaa8yAAk?t=17455
