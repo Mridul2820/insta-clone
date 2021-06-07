@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import Header from '../components/Header'
-import Timeline from '../components/Timeline'
+import Timeline from '../components/post/Timeline'
 import SideBar from '../components/sidebar/SideBar'
 
 const Dashboard = () => {
