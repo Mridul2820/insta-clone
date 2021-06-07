@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { getSuggestedProfiles } from '../../services/firebase'
 import SuggestedProfile from './SuggestedProfile';
 
-const Suggestions = ({ userId, following }) => {
+const Suggestions = ({ userId, following, loggedInUserDocId }) => {
     const [profiles, setProfiles] = useState(null)
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Suggestions = ({ userId, following }) => {
             suggestedProfiles();
         }
 
-        console.log('profiles', profiles);
+        // console.log('profiles', profiles);
     }, [userId])
 
     return (
@@ -35,10 +35,11 @@ const Suggestions = ({ userId, following }) => {
                     {profiles.map((profile) => (
                         <SuggestedProfile
                             key={profile.docId}
-                            userDocId={profile.docId}
+                            profileDocId={profile.docId}
                             username={profile.username}
                             profileId={profile.userId}
                             userId={userId}
+                            loggedInUserDocId={loggedInUserDocId}
                         />
                     ))}
                     </Profiles>
@@ -66,6 +67,7 @@ export default Suggestions
 
 Suggestions.propTypes = {
     userId: PropTypes.string,
-    following: PropTypes.array
+    following: PropTypes.array,
+    loggedInUserDocId: PropTypes.string
 };
 
