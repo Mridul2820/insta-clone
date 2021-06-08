@@ -73,12 +73,14 @@ const Header = () => {
                 )}
                 </HeaderRight>
             </HeaderContainer>
-            
         </HaederMain>
     )
 }
 
 const HaederMain = styled.header`
+    position: sticky;
+    top: 0;
+    left: 0;
     height: 54px;
     background: #ffffff;
     border-bottom: 1px solid #dbdbdb;

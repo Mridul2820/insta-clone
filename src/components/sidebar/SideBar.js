@@ -9,21 +9,32 @@ const SideBar = () => {
 
     return (
         <SideBarWrap>
-            <User 
-                fullName={fullName} 
-                username={username}
-            />
-            <Suggestions 
-                userId={userId} 
-                following={following} 
-                loggedInUserDocId={docId} 
-            />
+            <SideBarMain>
+                <User 
+                    fullName={fullName} 
+                    username={username}
+                />
+                <Suggestions 
+                    userId={userId} 
+                    following={following} 
+                    loggedInUserDocId={docId} 
+                />
+            </SideBarMain>
         </SideBarWrap>
     )
 }
 
 const SideBarWrap = styled.div`
     padding: 4px;
+
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
+`
+
+const SideBarMain = styled.div`
+    position: sticky;
+    top: 88px;
 `
 
 export default SideBar

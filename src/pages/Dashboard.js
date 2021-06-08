@@ -28,6 +28,17 @@ const DashBoardWrap = styled.div`
     padding-top: 30px;
     margin: 0 auto;
     gap: 1.5rem;
+
+    @media screen and (max-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 625px;
+        margin: 0 20px;
+    }
+
+    @media screen and (max-width: 480px) {
+        padding-top: 20px;
+        margin: 0 10px;
+    }
 `
 
 export default Dashboard
