@@ -12,9 +12,14 @@ const Image = ({ src, caption }) => {
 
 const PostImage = styled.div`
     width: 100%;
+    max-height: 600px;
+    height: 100%;
+    overflow: hidden;
 
     img {
         width: 100%;
+        object-fit: cover;
+        vertical-align: middle;
     }
 `
 
