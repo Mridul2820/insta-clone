@@ -247,5 +247,3 @@ const AppBox = styled.div`
 `
 
 export default SignUp
-
-// https://youtu.be/AKeaaa8yAAk?t=8378
