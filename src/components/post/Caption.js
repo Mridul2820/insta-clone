@@ -1,11 +1,21 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import ShowMoreText from 'react-show-more-text';
 
 const Caption = ({caption, username }) => {
     return (
         <CaptionWrap>
             <Username>{username}</Username>
-            <PostCaption>{caption}</PostCaption>
+            <ShowMore
+                lines={2}
+                more='more'
+                less='less'
+                anchorClass='more-less'
+                expanded={false}
+                width={500}
+            >
+                {caption}
+            </ShowMore>
         </CaptionWrap>
     )
 }
@@ -21,8 +31,12 @@ const Username = styled.span`
     margin-right: 5px;
 `
 
-const PostCaption = styled.span`
+const ShowMore = styled(ShowMoreText)`
+    display: inline;
 
+    .more-less {
+        color: #8e8e8e;
+    }
 `
 
 export default Caption
@@ -30,5 +44,5 @@ export default Caption
 Caption.propTypes = {
     caption: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired
-  };
+};
   

@@ -37,5 +37,3 @@ const TimelineSkeleton = styled(Skeleton)`
 `
 
 export default Timeline
-
-// https://youtu.be/AKeaaa8yAAk?t=23609

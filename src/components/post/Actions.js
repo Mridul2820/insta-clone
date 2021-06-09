@@ -10,7 +10,6 @@ import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { FaRegBookmark } from 'react-icons/fa'
 import styled, { keyframes } from 'styled-components';
 
-
 const Actions = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
     const {
         user: { uid: userId }

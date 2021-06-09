@@ -32,6 +32,10 @@ const DashBoardWrap = styled.div`
     @media screen and (max-width: 1000px) {
         grid-template-columns: repeat(2, 1fr);
         max-width: 625px;
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 650px) {
         margin: 0 20px;
     }
 
