@@ -7,6 +7,7 @@ import UserContext from '../../context/user';
 import { FaRegHeart, FaHeart } from 'react-icons/fa'
 import { BsChat } from 'react-icons/bs'
 import { IoPaperPlaneOutline } from 'react-icons/io5'
+import { FaRegBookmark } from 'react-icons/fa'
 import styled, { keyframes } from 'styled-components';
 
 
@@ -35,25 +36,28 @@ const Actions = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
     return (
         <ActionsWrap>
             <LikeComment>
-                <Heart
-                    onClick={handleToggleLiked}
-                    onKeyDown={(event) => {
-                        if (event.key === 'Enter') {
-                            handleToggleLiked();
-                        }
-                    }}
-                >
-                {toggleLiked 
-                    ? <FaHeart size="26px" style={{  fill: "#ed4956" }}/>
-                    : <FaRegHeart size="26px" />
-                }
-                </Heart>
+                <div>
+                    <Heart
+                        onClick={handleToggleLiked}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter') {
+                                handleToggleLiked();
+                            }
+                        }}
+                    >
+                    {toggleLiked 
+                        ? <FaHeart size="26px" style={{  fill: "#ed4956" }}/>
+                        : <FaRegHeart size="26px" />
+                    }
+                    </Heart>
 
-                <BsChat 
-                    size="25px"
-                    style={{transform: "rotateY(180deg)"}}
-                />
-                <IoPaperPlaneOutline size="27px" />
+                    <BsChat 
+                        size="25px"
+                        style={{transform: "rotateY(180deg)"}}
+                    />
+                    <IoPaperPlaneOutline size="27px" />
+                </div>
+                <FaRegBookmark size="24px" />
             </LikeComment>
             <TotalLikes>
                 <p>{likes === 1 ? `${likes} like` : `${likes} likes`}</p>
@@ -63,13 +67,19 @@ const Actions = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
 }
 
 const ActionsWrap = styled.div`
-    padding: 15px;
+    padding: 15px 15px 10px 15px;
 `
 const LikeComment = styled.div`
     display: flex;
     align-content: center;
     justify-content: space-between;
-    width: 100px;
+    
+    > div {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        width: 100px;
+    }
 
     svg {
         cursor: pointer;

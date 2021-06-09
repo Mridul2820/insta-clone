@@ -4,6 +4,7 @@ import Header from './Header';
 import styled from 'styled-components';
 import Image from './Image';
 import Actions from './Actions';
+import Caption from './Caption';
 
 const Post = ({ content }) => {
     const commentInput = useRef(null);
@@ -23,6 +24,10 @@ const Post = ({ content }) => {
                 totalLikes={content.likes.length}
                 likedPhoto={content.userLikedPhoto}
                 handleFocus={handleFocus} 
+            />
+            <Caption 
+                caption={content.caption} 
+                username={content.username} 
             />
         </PostArticle>
     )
@@ -50,4 +55,4 @@ Post.propTypes = {
     })
 };
 
-// https://youtu.be/AKeaaa8yAAk?t=23148
+// https://youtu.be/AKeaaa8yAAk?t=24502
