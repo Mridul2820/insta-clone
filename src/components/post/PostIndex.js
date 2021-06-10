@@ -1,5 +1,9 @@
-import { useRef } from 'react';
+import { useState, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
+
+import FirebaseContext from '../../context/firebase';
+import UserContext from '../../context/user';
+
 import Header from './Header';
 import styled from 'styled-components';
 import ImageLike from './ImageLike';
@@ -10,6 +14,29 @@ const PostIndex = ({ content }) => {
     const commentInput = useRef(null);
     const handleFocus = () => commentInput.current.focus();
 
+    // Like Toggle
+    const {
+        user: { uid: userId }
+    } = useContext(UserContext);
+
+    const [toggleLiked, setToggleLiked] = useState(content.userLikedPhoto);
+    const [likes, setLikes] = useState(content.likes.length);
+    const { firebase, FieldValue } = useContext(FirebaseContext);
+
+    const handleToggleLiked = async () => {
+        setToggleLiked((toggleLiked) => !toggleLiked);
+
+        await firebase
+            .firestore()
+            .collection('photos')
+            .doc(content.docId)
+            .update({
+                likes: toggleLiked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId)
+            });
+
+        setLikes((likes) => (toggleLiked ? likes - 1 : likes + 1));
+    };
+
     return (
         <PostArticle>
             <Header 
@@ -18,12 +45,13 @@ const PostIndex = ({ content }) => {
             <ImageLike
                 src={content.imageSrc} 
                 caption={content.caption} 
+                handleToggleLiked={handleToggleLiked}
             />
             <Actions 
-                docId={content.docId} 
-                totalLikes={content.likes.length}
-                likedPhoto={content.userLikedPhoto}
                 handleFocus={handleFocus} 
+                handleToggleLiked={handleToggleLiked}
+                likes={likes}
+                toggleLiked={toggleLiked}
             />
             <Caption 
                 caption={content.caption} 

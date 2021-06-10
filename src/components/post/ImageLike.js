@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import styled, { keyframes, css } from 'styled-components';
 import { FaHeart } from 'react-icons/fa'
 
-const ImageLike = ({ src, caption }) => {
+const ImageLike = ({ src, caption, handleToggleLiked }) => {
     const [likeAnim, setLikeAnim] = useState(false)
+
+    const ImageClickLike = () => {
+        setLikeAnim(true)
+        handleToggleLiked()
+    }
 
     return (
         <PostWrap>
@@ -14,7 +19,7 @@ const ImageLike = ({ src, caption }) => {
             </ImgWrap>
             
             <DoubleClick 
-                onDoubleClick={() => setLikeAnim(true)} 
+                onDoubleClick={ImageClickLike} 
             />
             <BigHeart
                 onAnimationEnd={() => setLikeAnim(false)} 
