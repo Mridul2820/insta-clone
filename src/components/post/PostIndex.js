@@ -6,7 +6,7 @@ import ImageLike from './ImageLike';
 import Actions from './Actions';
 import Caption from './Caption';
 
-const Post = ({ content }) => {
+const PostIndex = ({ content }) => {
     const commentInput = useRef(null);
     const handleFocus = () => commentInput.current.focus();
 
@@ -40,9 +40,9 @@ const PostArticle = styled.article`
     margin-bottom: 50px;
 `
 
-export default Post
+export default PostIndex
 
-Post.propTypes = {
+PostIndex.propTypes = {
     content: PropTypes.shape({
         username: PropTypes.string.isRequired,
         imageSrc: PropTypes.string.isRequired,

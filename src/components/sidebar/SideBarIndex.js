@@ -4,7 +4,7 @@ import useUser from '../../hooks/useUser'
 import User from './User'
 import Suggestions from './Suggestions'
 
-const SideBar = () => {
+const SideBarIndex = () => {
     const { user : { docId, fullName, username, userId, following } } = useUser()
 
     return (
@@ -37,4 +37,4 @@ const SideBarMain = styled.div`
     top: 88px;
 `
 
-export default SideBar
+export default SideBarIndex

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Header from '../components/Header'
 import Timeline from '../components/Timeline'
-import SideBar from '../components/sidebar/SideBar'
+import SideBarIndex from '../components/sidebar/SideBarIndex'
 
 const Dashboard = () => {
     useEffect(() => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
             <Header/>
             <DashBoardWrap>
                 <Timeline />
-                <SideBar />
+                <SideBarIndex />
             </DashBoardWrap>
         </div>
     )

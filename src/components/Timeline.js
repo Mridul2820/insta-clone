@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import usePhotos from '../hooks/usePhotos'
-import Post from './post/Post'
+import PostIndex from './post/PostIndex'
 
 const Timeline = () => {
     const { photos } = usePhotos();
@@ -19,7 +19,7 @@ const Timeline = () => {
             />
         ) : photos?.length > 0 ? (
             photos.map(content => (
-                <Post key={content.docId} content={content} />
+                <PostIndex key={content.docId} content={content} />
             ))
         ) : (
             <p>Follow people to see posts</p>
