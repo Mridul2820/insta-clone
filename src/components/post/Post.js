@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import styled from 'styled-components';
-import Image from './Image';
+import ImageLike from './ImageLike';
 import Actions from './Actions';
 import Caption from './Caption';
 
@@ -15,7 +15,7 @@ const Post = ({ content }) => {
             <Header 
                 username={content.username} 
             />
-            <Image 
+            <ImageLike
                 src={content.imageSrc} 
                 caption={content.caption} 
             />

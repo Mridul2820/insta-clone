@@ -7,7 +7,7 @@ import Post from './post/Post'
 const Timeline = () => {
     const { photos } = usePhotos();
 
-    console.log('photos', photos);
+    // console.log('photos', photos);
 
     return (
         <TimelineWrap>
