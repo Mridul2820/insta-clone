@@ -10,6 +10,7 @@ import FirebaseContext from '../context/firebase'
 import UserContext from '../context/user';
 
 import * as ROUTES from '../constants/routes'
+import { Button } from '../GlobalStyles';
 
 
 const Header = () => {
@@ -140,14 +141,5 @@ const ProfileIcon = styled(Link)`
 
 const HeaderButtons = styled.div``
 
-const Button = styled.button`
-    margin: 0 8px;
-    border: 1px solid transparent;
-    background-color: #0095f6;
-    color: #fff;
-    border-radius: 4px;
-    padding: 5px 9px;
-    cursor: pointer;
-`
 
 export default Header

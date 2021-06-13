@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import FirebaseContext from '../context/firebase'
 import * as ROUTES from '../constants/routes'
 import { doesUsernameExist } from '../services/firebase'
+import { Button } from '../GlobalStyles'
 
 const SignUp = () => {
     const history = useHistory()
@@ -180,20 +181,6 @@ const Input = styled.input`
     &::placeholder {
         color: rgba(142,142,142,1);
         font-size: 12px;
-    }
-`
-
-const Button = styled.button`
-    margin: 8px 40px;
-    border: 1px solid transparent;
-    background-color: #0095f6;
-    color: #fff;
-    border-radius: 4px;
-    padding: 5px 9px;
-    cursor: pointer;
-    
-    &:disabled {
-        background-color: rgba(0,149,246,.3);
     }
 `
 

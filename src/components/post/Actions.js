@@ -27,6 +27,12 @@ const Actions = ({ likes, toggleLiked, handleToggleLiked, handleFocus }) => {
                     </Heart>
 
                     <BsChat 
+                        onClick={handleFocus}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter') {
+                                handleFocus();
+                            }
+                        }}
                         size="25px"
                         style={{transform: "rotateY(180deg)"}}
                     />
