@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import ImageLike from './ImageLike';
 import Actions from './Actions';
 import Caption from './Caption';
+import Comment from './Comment';
 
 const PostIndex = ({ content }) => {
     const commentInput = useRef(null);
@@ -57,6 +58,12 @@ const PostIndex = ({ content }) => {
                 caption={content.caption} 
                 username={content.username} 
             />
+            <Comment 
+                docId={content.docId}
+                comments={content.comments}
+                posted={content.dateCreated}
+                commentInput={commentInput}
+            />
         </PostArticle>
     )
 }
@@ -82,5 +89,3 @@ PostIndex.propTypes = {
         dateCreated: PropTypes.number.isRequired
     })
 };
-
-// https://youtu.be/AKeaaa8yAAk?t=24502

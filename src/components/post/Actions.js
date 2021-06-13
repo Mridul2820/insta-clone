@@ -97,5 +97,3 @@ export default Actions
 Actions.propTypes = {
     handleFocus: PropTypes.func.isRequired
 };
-
-// https://youtu.be/AKeaaa8yAAk?t=24172

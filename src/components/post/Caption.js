@@ -21,18 +21,19 @@ const Caption = ({caption, username }) => {
 }
 
 const CaptionWrap = styled.div`
-    padding:0 18px 18px 18px;
+    padding:0 18px 8px 18px;
 `
 
 const Username = styled.span`
     font-weight: 600;
-    font-size : 14px;
+    font-size : 16px;
     color: #262626;
     margin-right: 5px;
 `
 
 const ShowMore = styled(ShowMoreText)`
     display: inline;
+    font-size : 16px;
 
     .more-less {
         color: #8e8e8e;
