@@ -8,6 +8,7 @@ import UserContext from './context/user'
 
 import ProtectedRoute from './helpers/ProtectedRoute'
 import IsUserLoggedIn from './helpers/IsUserLoggedIn'
+import Profile from './pages/Profile'
 
 const Login = lazy(() => import ('./pages/Login'))
 const SignUp = lazy(() => import ('./pages/SignUp'))
@@ -30,6 +31,8 @@ const App = () => {
                         <IsUserLoggedIn user={user} loggedInPath={ROUTES.DASHBOARD} path={ROUTES.SIGN_UP}>
                             <SignUp />
                         </IsUserLoggedIn>
+
+                        <Route path={ROUTES.PROFILE} component={Profile} />
 
                         <ProtectedRoute user={user} path={ROUTES.DASHBOARD} exact>
                             <Dashboard />
