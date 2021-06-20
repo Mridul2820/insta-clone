@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Header from './Header'
 import { getUserPhotosByUsername } from '../../services/firebase'
 import Photos from './Photos'
+import styled from 'styled-components'
 
 const ProfileIndex = ({ user }) => {
     const reducer = (state, newState) => ({ ...state, ...newState });
@@ -30,7 +31,7 @@ const ProfileIndex = ({ user }) => {
     }, [user.username])
 
     return (
-        <div>
+        <Container>
             <Header 
                 photosCount={photosCollection ? photosCollection.length : 0}
                 profile={profile}
@@ -38,10 +39,13 @@ const ProfileIndex = ({ user }) => {
                 setFollowerCount={dispatch}
             />
             <Photos photos={photosCollection}/>
-            hello {user.username}
-        </div>
+        </Container>
     )
 }
+
+const Container = styled.div`
+    padding: 30px 20px 0;
+`
 
 export default ProfileIndex
 
@@ -56,6 +60,3 @@ ProfileIndex.propTypes = {
         username: PropTypes.string
     })
 };
-
-
-// https://youtu.be/AKeaaa8yAAk?t=30721
