@@ -12,6 +12,7 @@ const Header = ({
         docId: profileDocId,
         userId: profileUserId,
         fullName,
+        followers = [],
         following = [],
         username: profileUsername
     }, 
@@ -23,13 +24,19 @@ const Header = ({
 
     const activeBtnFollow = user?.username && user?.username !== profileUsername;
 
-    const handleToggleFollow = () => 1
+    const handleToggleFollow = () => {
+        setIsFollowingProfile(isFollowingProfile => !isFollowingProfile)
+
+        setFollowerCount({
+            followerCount: isFollowingProfile ? followers.length - 1 : followers.length + 1
+        });
+    }
 
     useEffect(() => {
         const isLoggedInUserFollowingProfile = async() => {
             const isFollowing = await isUserFollowingProfile(user.username, profileUserId)
 
-            setIsFollowingProfile(isFollowing)
+            setIsFollowingProfile(!!isFollowing)
         }
 
         if(user.username && profileUserId) {
@@ -55,15 +62,34 @@ const Header = ({
                             type="button"
                             onClick={handleToggleFollow}
                             onKeyDown={(event) => {
-                            if (event.key === 'Enter') {
-                                handleToggleFollow();
-                            }
+                                if (event.key === 'Enter') {
+                                    handleToggleFollow();
+                                }
                             }}
                         >
                             {isFollowingProfile ? 'Unfollow' : 'Follow'}
                         </Button>
                     )}
                 </UserTop>
+                <UserMid>
+                {followers === undefined || following === undefined ? (
+                    <Skeleton count={1} width={677} height={24} />
+                ) : (
+                    <>
+                        <p>
+                            <span>{photosCount}</span> photos
+                        </p>
+                        <p>
+                            <span>{followerCount}</span>
+                            {` `}
+                            {followerCount === 1 ? `follower` : `followers`}
+                        </p>
+                        <p>
+                            <span>{following?.length}</span> following
+                        </p>
+                    </>
+                )}
+                </UserMid>
             </UserDetails>
         </Container>
     )
@@ -79,10 +105,8 @@ const UserImg = styled.div`
     width: 150px;
     height: 150px;
     border-radius: 50%;
-
     overflow: hidden;
     margin: 0 auto;
-    
 
     img {
         width: 100%;
@@ -96,7 +120,8 @@ const UserDetails = styled.div`
 const UserTop = styled.div`
     display: flex;
     align-items: center;
-
+    margin-bottom: 20px;
+    
     ${Button} {
         padding: 5px 24px;
         font-size: 14px;
@@ -113,6 +138,21 @@ const UserTop = styled.div`
         line-height: 32px;
     }
 `
+
+const UserMid = styled.div`
+    display: flex;
+
+    p {
+        margin-right: 40px;
+        font-size: 16px;
+    }
+
+    span {
+        color: #262626;
+        font-weight: 600;
+    }
+`
+
 
 export default Header
 
