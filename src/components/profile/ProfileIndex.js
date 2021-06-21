@@ -28,6 +28,7 @@ const ProfileIndex = ({ user }) => {
         }
 
         getProfileInfoAndPhotos()
+        // eslint-disable-next-line
     }, [user.username])
 
     return (

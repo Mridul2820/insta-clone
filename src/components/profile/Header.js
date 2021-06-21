@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import PropTypes from 'prop-types'
 import useUser from '../../hooks/useUser'
-import { isUserFollowingProfile } from '../../services/firebase'
+import { isUserFollowingProfile, toggleFollow } from '../../services/firebase'
 import styled from 'styled-components'
 import { Button } from '../../GlobalStyles'
 
@@ -24,12 +24,14 @@ const Header = ({
 
     const activeBtnFollow = user?.username && user?.username !== profileUsername;
 
-    const handleToggleFollow = () => {
+    const handleToggleFollow = async() => {
         setIsFollowingProfile(isFollowingProfile => !isFollowingProfile)
 
         setFollowerCount({
-            followerCount: isFollowingProfile ? followers.length - 1 : followers.length + 1
+            followerCount: isFollowingProfile ? followerCount - 1 : followerCount + 1
         });
+
+        await toggleFollow(isFollowingProfile, user.docId, profileDocId, profileUserId, user.userId);
     }
 
     useEffect(() => {
@@ -90,6 +92,14 @@ const Header = ({
                     </>
                 )}
                 </UserMid>
+                <UserBottom>
+                    <p>
+                    {!fullName 
+                        ? <Skeleton count={1} height={24} /> 
+                        : fullName
+                    }
+                    </p>
+                </UserBottom>
             </UserDetails>
         </Container>
     )
@@ -120,7 +130,7 @@ const UserDetails = styled.div`
 const UserTop = styled.div`
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     
     ${Button} {
         padding: 5px 24px;
@@ -141,6 +151,7 @@ const UserTop = styled.div`
 
 const UserMid = styled.div`
     display: flex;
+    margin-bottom: 10px;
 
     p {
         margin-right: 40px;
@@ -149,6 +160,18 @@ const UserMid = styled.div`
 
     span {
         color: #262626;
+        font-weight: 600;
+    }
+`
+
+const UserBottom = styled.div`
+
+    p {
+        font-size: 16px;
+    }
+
+    span {
+        color: #2b1d1d;
         font-weight: 600;
     }
 `

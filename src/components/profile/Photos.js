@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Skeleton from 'react-loading-skeleton'
+// import Skeleton from 'react-loading-skeleton'
 
 const Photos = ({ photos }) => {
     return (
